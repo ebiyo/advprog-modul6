@@ -9,3 +9,8 @@ Keyword `mut` menyatakan bahwa stream tersebut mutable. Artinya, function dapat 
 
 Lalu, function akan membaca HTTP request per line dan memprintnya menggunakan format pretty print untuk debugging yaitu `{:#?}`.
 
+### Commit 2 Reflection Notes
+![Commit 2 screen capture](image.png)
+Berbeda dengan sebelumnya, handle_connection kali ini tidak mem-print request, tapi mengirimkan response ke client dalam bentuk html.
+
+Function akan membaca file `hello.html` dan membacanya ke dalam String. Lalu, function akan membuat HTTP response dan mengirimkannya ke client. Hasil dari response tersebut dapat dilihat pada gambar di atas.
