@@ -21,3 +21,8 @@ Function akan membaca file `hello.html` dan membacanya ke dalam String. Lalu, fu
 
 ### Commit 3 Reflection Notes
 Sebelumnya, semua HTTP request akan mengirimkan response dari `hello.html`. Sekarang, function akan memeriksa apakah requestnya "GET / HTTP/1.1" (valid) atau tidak. Jika request tidak valid, maka function akan mengirimkan response dari `404.html` yaitu sebuah pesan error.
+
+---
+
+### Commit 4 Reflection Notes
+Alasan mengapa `127.0.0.1` lama dimuat setelah membuka `127.0.0.1/sleep` adalah karena server masih meng-handle request `127.0.0.1/sleep` sehingga `127.0.0.1` harus menunggu terlebih dahulu. Hal ini terjadi karena function meng-handle koneksi secara sekuensial (satu per satu), sehingga server akan terasa lebih lama jika ada banyak pengguna yang mengaksesnya sekaligus.
