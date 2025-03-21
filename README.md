@@ -26,3 +26,8 @@ Sebelumnya, semua HTTP request akan mengirimkan response dari `hello.html`. Seka
 
 ### Commit 4 Reflection Notes
 Alasan mengapa `127.0.0.1` lama dimuat setelah membuka `127.0.0.1/sleep` adalah karena server masih meng-handle request `127.0.0.1/sleep` sehingga `127.0.0.1` harus menunggu terlebih dahulu. Hal ini terjadi karena function meng-handle koneksi secara sekuensial (satu per satu), sehingga server akan terasa lebih lama jika ada banyak pengguna yang mengaksesnya sekaligus.
+
+---
+
+### Commit 5 Reflection Notes
+Sekarang, `handle_connection` menggunakan ThreadPool agar dapat meng-handle banyak request secara bersamaan agar lebih efisien dan cepat. Sebelumnya, setiap request `pool.execute` membuat thread baru menggunakan `thread::spawn` yang tidak efisien karena membuat dan menghapus thread terus-menerus. Dengan ThreadPool, semua thread dibuat sekali dan digunakan berulang-ulang. Dengan setup sekarang, kita bisa meng-handle sebanyak 4 request secara bersamaan yang ditentukan oleh `ThreadPool::new(4)`.
