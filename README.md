@@ -31,3 +31,10 @@ Alasan mengapa `127.0.0.1` lama dimuat setelah membuka `127.0.0.1/sleep` adalah 
 
 ### Commit 5 Reflection Notes
 Sekarang, `handle_connection` menggunakan ThreadPool agar dapat meng-handle banyak request secara bersamaan agar lebih efisien dan cepat. Sebelumnya, setiap request `pool.execute` membuat thread baru menggunakan `thread::spawn` yang tidak efisien karena membuat dan menghapus thread terus-menerus. Dengan ThreadPool, semua thread dibuat sekali dan digunakan berulang-ulang. Dengan setup sekarang, kita bisa meng-handle sebanyak 4 request secara bersamaan yang ditentukan oleh `ThreadPool::new(4)`.
+
+---
+
+### Commit Bonus Reflection Notes
+#### Hal yang di-improve:
+* Lebih readable karena lebih konsisten dengan idiom di Rust
+* Lebih fleksibel untuk modifikasi atau di extend di masa depan
